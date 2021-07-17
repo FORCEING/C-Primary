@@ -9,12 +9,12 @@ int HexToDex(char*str,int len)
 		if (str[i] >= '0' && str[i] <= '9')
 		{
 			temp = str[i] - '0';//提取出每个十六进制数
-			Dex = Dex + temp * pow(16, len - i - 1);//转换成十进制
+			Dex +=  temp * pow(16, len - i - 1);//转换成十进制
 		}
 		if (str[i] >= 'A' && str[i] <= 'F')
 		{
 			temp = str[i] - 'a'+10;
-			Dex=Dex+ temp * pow(16, len - i - 1);
+			Dex+=temp * pow(16, len - i - 1);
 		}
 	}
 	return Dex;
