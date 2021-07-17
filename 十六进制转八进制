@@ -1,0 +1,47 @@
+#define _CRT_SECURE_NO_WARNINGS
+#include<stdio.h>
+#include<math.h>
+int HexToDex(char*str,int len)
+{
+	int temp = 0,Dex=0;
+	for (int i = 0; i < len; i++)
+	{
+		if (str[i] >= '0' && str[i] <= '9')
+		{
+			temp = str[i] - '0';//提取出每个十六进制数
+			Dex = Dex + temp * pow(16, len - i - 1);//转换成十进制
+		}
+		if (str[i] >= 'A' && str[i] <= 'F')
+		{
+			temp = str[i] - 'a'+10;
+			Dex=Dex+ temp * pow(16, len - i - 1);
+		}
+	}
+	return Dex;
+}
+int DexToOct(int Dex)
+{
+	char str[10] = { 0 };
+	int i=0;
+	while(Dex!=0)
+	{
+		str[i] = Dex % 8+'0';
+		Dex = Dex / 8;
+		i++;
+	}//十进制转换成八进制
+	for ( i = strlen(str)-1; i >=0; i--)
+	{
+		printf("%c", str[i]);//反向输出
+	}
+	return 0;
+
+}
+int main()
+{
+	int  i=0,n=0;
+	char str[10] = { 0 };	//准备一个字符串存入十六进制数
+	scanf("%s", &str);//输入十六进制字符串
+	int len = strlen(str);//计算输入字符串的长度
+	int Dex=HexToDex(str,len);
+	DexToOct(Dex);
+	return 0;
