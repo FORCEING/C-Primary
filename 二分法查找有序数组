@@ -22,5 +22,6 @@ int main()
 		else
 			record_end = mid-1;//大于待查元素向左移，尾分元素移动到中间元素-1的位置上
 	} 
+	printf("找不到");
 	return 0;
 }
