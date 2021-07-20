@@ -10,7 +10,7 @@ int main()
 	int record_head = 0;//记录二分法头分元素
 	int record_end = sz-1;//记录二分法尾分元素
 	int mid = 0;//记录二分法中间元素
-	for(int i=0;i<log2(10)+1;i++)
+	while(record_end>=ecord_head)
 	{ 
 		mid = (record_head + record_end)/ 2;//中间元素随着头分尾分元素移动
 		if ((arr[mid]) == k) {
@@ -22,6 +22,7 @@ int main()
 		else
 			record_end = mid-1;//大于待查元素向左移，尾分元素移动到中间元素-1的位置上
 	} 
+	if(record_end<ecord_head)
 	printf("找不到");
 	return 0;
 }
