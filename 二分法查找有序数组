@@ -1,0 +1,26 @@
+#define _CRT_SECURE_NO_WARNINGS
+#include<stdio.h>
+#include<string.h>
+#include<math.h>
+int main()
+{
+	int arr[20] = { 0,1,2,3,4,5,6,7,8,9,23,29,35,67,89,123,128,190,234,789};
+	int k = 190;//查找的数字
+	int sz = sizeof(arr) / sizeof(arr[0]);//计算数组的个数
+	int record_head = 0;//记录二分法头分元素
+	int record_end = sz-1;//记录二分法尾分元素
+	int mid = 0;//记录二分法中间元素
+	for(int i=0;i<log2(10)+1;i++)
+	{ 
+		mid = (record_head + record_end)/ 2;//中间元素随着头分尾分元素移动
+		if ((arr[mid]) == k) {
+			printf("找到了 下标为：%d\n", mid);
+				break;
+		}
+		else if (arr[mid] < k)
+			record_head = mid+1;//小于待查元素向右移，头分元素移动到中间元素+1的位置上
+		else
+			record_end = mid-1;//大于待查元素向左移，尾分元素移动到中间元素-1的位置上
+	} 
+	return 0;
+}
