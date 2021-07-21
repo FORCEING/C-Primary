@@ -1,0 +1,30 @@
+#define _CRT_SECURE_NO_WARNINGS
+#include<stdio.h>
+#include<string.h>
+#include<math.h>
+//求数是不是素数
+int JudgePri(int b)
+{
+	if (b % 2 == 0)
+		return 0;
+	else
+		for (int i = 2; i <= sqrt(b); i++)
+		{
+			if (b % i == 0)//处试法判断是否存在某个数能被b整除
+			{
+				return 0;
+			}
+		}
+	return 1;
+}
+int main()
+{
+	int b = 0;
+	scanf("%d", &b);
+	int ret = JudgePri(b);
+	if (ret == 0)
+		printf("%d 不是素数",b);
+	else
+		printf("%d 是素数", b);
+	return 0;
+}
