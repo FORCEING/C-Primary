@@ -1,0 +1,29 @@
+#define _CRT_SECURE_NO_WARNINGS
+#include<stdio.h>
+#include<string.h>
+#include<math.h>
+//求最大公约数,辗转相除法
+int GreConDiv(int a, int b)
+{
+	int temp1 = 0;
+	if (b > a) {
+		temp1 = b;
+		b = a;
+		a = temp1;
+	}
+	int temp2=0;
+	while (temp2 = a % b){
+		a = b;//a的值变为b
+		b = temp2;//b的值变为temp2
+	}
+	return b;
+}
+int main()
+{
+	int a = 0;
+	int b = 0;
+	scanf("%d%d", &a, &b);
+	int ret= GreConDiv(a, b);
+	printf("最大公约数为：%d", ret);
+  return 0；
+}
