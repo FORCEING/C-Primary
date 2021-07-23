@@ -1,0 +1,27 @@
+#define _CRT_SECURE_NO_WARNINGS
+#include<stdio.h>
+void move(int disk,char x, char y)
+{
+	printf("第%d个盘从%c移动到%c\n",disk, x, y);
+}
+void my_honic(int n, char A, char B,char C)
+{
+	if (n == 1)
+		move(n,A, C);
+	else{
+		my_honic(n - 1, A, C, B); 
+		move(n,A, C);
+		my_honic(n - 1,B, A, C);
+	}
+}
+int main()
+{
+	int n = 0;
+	char ch1 = 'A';
+	char ch2 = 'B';
+	char ch3 = 'C';
+	printf("请输入盘的个数:");
+	scanf("%d",&n);
+	my_honic(n, ch1, ch2, ch3);
+	return 0;
+}
