@@ -1,0 +1,18 @@
+#include<stdio.h>
+//描述第n个斐波那数列
+//大概只能算到40位
+int fac(int n)
+{
+	if (n <= 2)
+		return 1;
+	return fac(n - 1) + fac(n - 2);
+	//fac(n)=fac(n-1)+fac(n-2)
+}
+int main()
+{
+	int n = 0;
+	printf("请输入要查找斐波那第n个位置的数：");
+	scanf("%d",&n);
+	int ret=fac(n);
+	printf("第n个数为:%d",ret);
+}
