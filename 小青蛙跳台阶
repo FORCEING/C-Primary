@@ -1,0 +1,18 @@
+#define _CRT_SECURE_NO_WARNINGS
+#include<stdio.h>
+int StepJump(int n)
+{
+	if (n <= 2)
+		return n;
+	else
+		return StepJump(n - 1) + StepJump(n - 2);
+}
+int main()
+{
+	int n = 0;
+	printf("请输入台阶的阶数：");
+	scanf("%d", &n);
+	int ret = StepJump(n);
+	printf("跳上%d个台阶有%d种跳法",n,ret);
+	return 0;
+}
